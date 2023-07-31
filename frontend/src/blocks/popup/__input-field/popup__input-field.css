@@ -1,0 +1,9 @@
+.popup__input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.popup__input-field:last-of-type {
+  margin-top: 36px;
+}
