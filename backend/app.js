@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
-/* const cors = require('cors'); */
+const cors = require('cors');
 
 const app = express();
 
@@ -16,7 +16,7 @@ const { linkRegex } = require('./utils/constants');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000, MONGOOSE_CONNECT = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
-/* app.use(cors()); */
+app.use(cors());
 mongoose.connect(MONGOOSE_CONNECT);
 
 app.use(bodyParser.json());
