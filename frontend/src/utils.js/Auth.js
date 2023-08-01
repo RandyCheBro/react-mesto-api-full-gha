@@ -53,8 +53,8 @@ class Auth {
 }
 
 const auth = new Auth({
-  /* baseUrl: 'https://auth.nomoreparties.co' */
-  baseUrl: 'http://localhost:3000'
+  baseUrl: 'https://api.domainname.kolya.nomoreparties.co',
+  /* baseUrl: 'http://localhost:3000' */
 })
 
 export default auth;
