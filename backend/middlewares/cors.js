@@ -4,8 +4,6 @@ const allowedCors = [
   'http://praktikum.tk',
   'https://domainname.kolya.nomoreparties.sbs',
   'http://domainname.kolya.nomoreparties.sbs',
-  'localhost:3000',
-  'localhost:3001',
 ];
 
 // eslint-disable-next-line consistent-return
@@ -22,7 +20,7 @@ const cors = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
   }
   // устанавливаем заголовок, который разрешает браузеру запросы из любого источника
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', true);
 
   // Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
