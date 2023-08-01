@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.67.97
+IP: 158.160.67.97
 
 Frontend https://domainname.kolya.nomoreparties.sbs
 
