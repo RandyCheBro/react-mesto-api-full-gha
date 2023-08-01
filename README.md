@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP: 158.160.67.97
-
 Frontend https://domainname.kolya.nomoreparties.sbs
 
 Backend https://api.domainname.kolya.nomoreparties.co
+
+Публичный IP: 158.160.67.97
