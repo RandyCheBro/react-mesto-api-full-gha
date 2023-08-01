@@ -4,7 +4,6 @@ const User = require('../models/user');
 const BadRequest = require('../errors/BadRequest');
 const NotFound = require('../errors/NotFound');
 const Conflict = require('../errors/Conflict');
-const { jwtSecret } = require('../utils/constants');
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -129,7 +128,7 @@ const login = (req, res, next) => {
   const { email, password } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user.id }, jwtSecret, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user.id }, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
       res.status(200).send({ token });
     })
     .catch((err) => {
