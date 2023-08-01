@@ -103,10 +103,6 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.domainname.kolya.nomoreparties.co',
   /* baseUrl: "http://localhost:3000", */
-  /* headers: {
-    authorization: "6a0db938-2403-4f98-8704-25b1d87eef40",
-    "Content-Type": "application/json",
-  }, */
 });
 
 export default api;
