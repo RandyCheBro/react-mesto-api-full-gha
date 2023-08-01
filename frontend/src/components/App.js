@@ -91,7 +91,8 @@ function App() {
 
 
   React.useEffect(() => {
-    if (!isLoggedIn) {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([userData, cards]) => {
           setCurrentUser(userData)
@@ -102,7 +103,8 @@ function App() {
   }, [isLoggedIn])
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
+    /* const isLiked = card.likes.some(i => i._id === currentUser._id); */
 
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -196,10 +198,13 @@ function App() {
         if (res) {
           setIsLoggedIn(true);
           navigate("/", { replace: true })
-          setUserEmail(res.data.email)
+          setUserEmail(res.email)
         }
       })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          localStorage.removeItem("jwt")
+          console.log(err)
+        })
     }
   }, [navigate])
 

@@ -5,6 +5,7 @@ const allowedCors = [
   'https://domainname.kolya.nomoreparties.sbs',
   'http://domainname.kolya.nomoreparties.sbs',
   'localhost:3000',
+  'localhost:3001',
 ];
 
 const cors = (req, res, next) => {
