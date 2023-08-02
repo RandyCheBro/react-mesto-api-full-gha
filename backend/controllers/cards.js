@@ -30,8 +30,6 @@ const getCards = (req, res, next) => {
 const deleteCard = (req, res, next) => {
   const { cardId } = req.params;
   const owner = req.user._id;
-  console.log(cardId);
-  console.log(owner);
   Card.findById(cardId)
     .then((card) => {
       if (!card) {
@@ -40,7 +38,7 @@ const deleteCard = (req, res, next) => {
       if (!card.owner.equals(owner)) {
         throw new Forbidden(`Ошибка ${Forbidden.name},Нет прав для удаления чужой карточки.`);
       }
-      return Card.findByIdAndRemove(cardId)
+      return card.remove()
         .then(() => {
           res.status(200).send({ message: 'Карточка удалена' });
         })
