@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
 
   try {
     // eslint-disable-next-line no-undef
-    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    payload = jwt.verify(token, process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET : 'dev-secret');
   } catch (err) {
     return next(new Unauthorized('Необходима авторизация'));
   }

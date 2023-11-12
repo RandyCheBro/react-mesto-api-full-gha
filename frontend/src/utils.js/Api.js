@@ -101,8 +101,8 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api.domainname.kolya.nomoreparties.co',
-  /* baseUrl: "http://localhost:3000", */
+/*   baseUrl: 'https://api.domainname.kolya.nomoreparties.co', */
+  baseUrl: "http://localhost:3000",
 });
 
 export default api;
